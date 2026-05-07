@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Powered UI/UX & Product Design Fellowship Programme - 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --guvi-green: #00C853;
+    --guvi-green-light: #69F0AE;
+    --guvi-green-dark: #00953D;
+    --purple: #7B2FBE;
+    --purple-light: #9B4DCA;
+    --teal: #00B8A9;
+    --orange: #FF6B35;
+    --pink: #E91E8C;
+    --blue: #2196F3;
+    --gold: #FFC107;
+    --dark: #1A1A2E;
+    --text: #2D2D2D;
+    --text-light: #666;
+    --white: #ffffff;
+    --bg: #ffffff;
+    --card-bg: #ffffff;
+    --road-dark: #2C3E50;
+    --road-mid: #34495E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ─── LOGO CORNER ─── */
+  .logo-corner {
+    position: fixed;
+    top: 20px;
+    right: 28px;
+    z-index: 100;
+    background: white;
+    border-radius: 12px;
+    padding: 10px 18px;
+    box-shadow: 0 4px 24px rgba(0,200,83,0.13), 0 1px 6px rgba(0,0,0,0.07);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1.5px solid #e8f5e9;
+  }
+  .guvi-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .guvi-icon {
+    width: 34px;
+    height: 34px;
+    background: var(--guvi-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 900;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: -1px;
+  }
+  .guvi-text {
+    font-size: 20px;
+    font-weight: 900;
+    color: #111;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 1px;
+  }
+  .logo-divider {
+    width: 1.5px;
+    height: 28px;
+    background: #ccc;
+    margin: 0 6px;
+  }
+  .hcl-text {
+    font-size: 20px;
+    font-weight: 900;
+    color: #1565C0;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 2px;
+    font-style: italic;
+  }
+
+  /* ─── WRAPPER ─── */
+  .page-wrapper {
+    max-width: 1192px;
+    margin: 0 auto;
+    padding: 60px 20px 80px;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    text-align: center;
+    margin-bottom: 10px;
+    padding-top: 30px;
+  }
+  .header h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(26px, 5vw, 42px);
+    font-weight: 900;
+    line-height: 1.18;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+  .header h1 .ai-pow {
+    color: #009133;
+  }
+  .header h1 .year {
+    color: #009133;
+  }
+  .tagline {
+    font-size: clamp(13px, 2vw, 16px);
+    font-weight: 500;
+    color: #555;
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+  }
+  .tagline .smarter { color: var(--guvi-green); font-weight: 700; }
+  .tagline .deeper  { color: var(--blue);       font-weight: 700; }
+  .tagline .impact  { color: var(--guvi-green-dark); font-weight: 700; }
+
+  /* ─── ROAD MAP SVG SECTION ─── */
+  .road-section {
+    position: relative;
+    width: 100%;
+    margin: 36px 0 10px;
+    overflow: visible;
+  }
+
+  .road-svg-wrap {
+    width: 100%;
+    position: relative;
+  }
+
+  /* ─── DETAIL SECTION HEADING ─── */
+  .journey-heading {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #555;
+    margin: 74px 0 38px;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .journey-heading::before, .journey-heading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 28%;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, #ddd);
+  }
+  .journey-heading::before { left: 0; }
+  .journey-heading::after  { right: 0; background: linear-gradient(90deg, #ddd, transparent); }
+
+  /* ─── CARDS GRID ─── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 36px;
+  }
+  @media (max-width: 700px) {
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 420px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+
+  .module-card {
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 18px 16px 20px;
+    box-shadow: 0 4px 22px rgba(0,0,0,0.07), 0 1px 4px rgba(0,200,83,0.05);
+    border: 1.5px solid #f0f0f0;
+    position: relative;
+    transition: transform 0.22s, box-shadow 0.22s;
+    overflow: hidden;
+  }
+  .module-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.11), 0 2px 8px rgba(0,200,83,0.1);
+  }
+  .module-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 0 0 18px 18px;
+  }
+
+  /* card accent colors */
+  .card-01::after { background: var(--purple); }
+  .card-02::after { background: var(--blue); }
+  .card-03::after { background: var(--teal); }
+  .card-04::after { background: var(--purple-light); }
+  .card-05::after { background: var(--orange); }
+  .card-06::after { background: var(--guvi-green); }
+  .card-07::after { background: var(--pink); }
+  .card-08::after { background: var(--gold); }
+
+  /* ─── TOPIC DOT LIST ─── */
+  .topics-wrap {
+    margin-top: 10px;
+    padding-left: 4px;
+    border-left: 3px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .topic-pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #2D2D2D;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.45;
+    padding: 3.5px 0 3.5px 8px;
+  }
+  .topic-pill::before {
+    content: '';
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    background: white;
+  }
+  .card-01 .topics-wrap { border-left-color: #9C4DCC; }
+  .card-01 .topic-pill  { color: #6A1B9A; }
+  .card-02 .topics-wrap { border-left-color: #2196F3; }
+  .card-02 .topic-pill  { color: #1565C0; }
+  .card-03 .topics-wrap { border-left-color: #00B8A9; }
+  .card-03 .topic-pill  { color: #006064; }
+  .card-04 .topics-wrap { border-left-color: #9B4DCA; }
+  .card-04 .topic-pill  { color: #512DA8; }
+  .card-05 .topics-wrap { border-left-color: #FF6B35; }
+  .card-05 .topic-pill  { color: #BF360C; }
+  .card-06 .topics-wrap { border-left-color: #00C853; }
+  .card-06 .topic-pill  { color: #1B5E20; }
+  .card-07 .topics-wrap { border-left-color: #E91E8C; }
+  .card-07 .topic-pill  { color: #880E4F; }
+  .card-08 .topics-wrap { border-left-color: #FFC107; }
+  .card-08 .topic-pill  { color: #7B5500; }
+  .topics-comma {
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #555;
+    line-height: 1.7;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 2px;
+  }
+
+  .card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 30px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-family: 'Nunito', sans-serif;
+  }
+  .num-01 { background: var(--purple); }
+  .num-02 { background: var(--blue); }
+  .num-03 { background: var(--teal); }
+  .num-04 { background: var(--purple-light); }
+  .num-05 { background: var(--orange); }
+  .num-06 { background: var(--guvi-green); }
+  .num-07 { background: var(--pink); }
+  .num-08 { background: var(--gold); }
+
+  .card-icon-wrap {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #f7f7f7;
+  }
+  .card-icon-wrap img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+  }
+
+  /* SVG icon placeholders */
+  .card-icon-svg {
+    width: 52px;
+    height: 52px;
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 6px;
+    line-height: 1.3;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  /* ─── BOTTOM FEATURES ─── */
+  .features-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+    padding: 28px 24px;
+    background: linear-gradient(135deg, #f9fff9 0%, #f0fdf4 100%);
+    border-radius: 20px;
+    border: 1.5px solid #d4f5dd;
+  }
+  @media (max-width: 600px) {
+    .features-row { grid-template-columns: 1fr 1fr; }
+  }
+
+  .feature-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .feature-icon-circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    background: white;
+    box-shadow: 0 3px 12px rgba(0,200,83,0.13);
+    border: 2px solid #e8f5e9;
+  }
+  .feature-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+    font-family: 'Nunito', sans-serif;
+  }
+  .feature-sub {
+    font-size: 11px;
+    color: var(--text-light);
+    line-height: 1.4;
+  }
+
+  /* ─── FOOTER TAGLINE ─── */
+  .footer-tag {
+    text-align: center;
+    margin-top: 36px;
+    font-size: 15px;
+    color: #888;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .footer-tag span {
+    color: var(--guvi-green);
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+  }
+  .footer-tag .dot-sep { color: #bbb; margin: 0 8px; }
+
+  /* sparkle decorations */
+  .sparkle {
+    display: inline-block;
+    color: var(--guvi-green);
+    font-size: 16px;
+    margin: 0 5px;
+    animation: sparkle-anim 2.5s ease-in-out infinite;
+  }
+  @keyframes sparkle-anim {
+    0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.6; transform: scale(1.3) rotate(20deg); }
+  }
+
+  /* ─── ROAD VISUAL ─── */
+  .road-container {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    margin: 0 0 0;
+    overflow: visible;
+  }
+
+  .road-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  /* stop circles */
+  .stop-group text {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+  }
+
+  /* label text under/above road */
+  .stop-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    fill: var(--dark);
+    text-anchor: middle;
+  }
+
+  /* animated dashes on road */
+  @keyframes dash-move {
+    from { stroke-dashoffset: 0; }
+    to   { stroke-dashoffset: -60; }
+  }
+  .road-dashes {
+    animation: dash-move 1.8s linear infinite;
+  }
+</style>
+</head>
+<body>
+
+<!-- GUVI | HCL Logo top right -->
+<div class="logo-corner">
+  <img src="https://www.guvi.in/assets/CPYoUJqK-hcl-guvi.webp" style="
+    width: 100%;
+    /* position: absolute; */
+    top: 20px;
+    right: 20px;
+    width: 120px;   /* reduce this */
+    height: auto;
+">
+</div>
+
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>
+      <span class="ai-pow">AI-Powered</span> UI/UX &amp; Product<br>
+      Design Fellowship Programme &ndash; <span class="year">2026</span>
+    </h1>
+     </div>
+
+  <!-- ROAD MAP VISUAL -->
+  <div class="road-container">
+    <svg class="road-svg" viewBox="0 0 820 260" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+      <defs>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0004"/>
+        </filter>
+        <!-- stop gradients -->
+        <radialGradient id="g01" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#9C4DCC"/>
+          <stop offset="100%" stop-color="#6A1B9A"/>
+        </radialGradient>
+        <radialGradient id="g02" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#42A5F5"/>
+          <stop offset="100%" stop-color="#1565C0"/>
+        </radialGradient>
+        <radialGradient id="g03" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#26C6DA"/>
+          <stop offset="100%" stop-color="#00838F"/>
+        </radialGradient>
+        <radialGradient id="g04" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#AB47BC"/>
+          <stop offset="100%" stop-color="#7B1FA2"/>
+        </radialGradient>
+        <radialGradient id="g05" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFA726"/>
+          <stop offset="100%" stop-color="#E65100"/>
+        </radialGradient>
+        <radialGradient id="g06" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#66BB6A"/>
+          <stop offset="100%" stop-color="#1B5E20"/>
+        </radialGradient>
+        <radialGradient id="g07" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#F06292"/>
+          <stop offset="100%" stop-color="#AD1457"/>
+        </radialGradient>
+        <radialGradient id="g08" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFCA28"/>
+          <stop offset="100%" stop-color="#F57F17"/>
+        </radialGradient>
+      </defs>
+
+      <!-- ═══ ROAD PATH ═══ -->
+      <!-- winding snake road similar to infographic -->
+      <path d="M 60,155 
+               C 100,155 120,155 145,155
+               C 195,155 215,110 240,85
+               C 265,60 290,60 320,85
+               C 345,105 360,130 380,145
+               C 400,158 415,158 440,145
+               C 460,134 480,110 510,90
+               C 535,73 555,73 580,90
+               C 605,107 620,130 640,148
+               C 658,163 675,163 695,148
+               C 715,133 730,115 760,105"
+            stroke="#2C3E50" stroke-width="42" fill="none" stroke-linecap="round"/>
+
+      <!-- Road highlight (lighter band) -->
+      <path d="M 60,155 
+               C 100,155 120,155 145,155
+               C 195,155 215,110 240,85
+               C 265,60 290,60 320,85
+               C 345,105 360,130 380,145
+               C 400,158 415,158 440,145
+               C 460,134 480,110 510,90
+               C 535,73 555,73 580,90
+               C 605,107 620,130 640,148
+               C 658,163 675,163 695,148
+               C 715,133 730,115 760,105"
+            stroke="#3D566E" stroke-width="36" fill="none" stroke-linecap="round"/>
+
+      <!-- road centre dashes -->
+      <path class="road-dashes"
+            d="M 60,155 
+               C 100,155 120,155 145,155
+               C 195,155 215,110 240,85
+               C 265,60 290,60 320,85
+               C 345,105 360,130 380,145
+               C 400,158 415,158 440,145
+               C 460,134 480,110 510,90
+               C 535,73 555,73 580,90
+               C 605,107 620,130 640,148
+               C 658,163 675,163 695,148
+               C 715,133 730,115 760,105"
+            stroke="white" stroke-width="2.5" fill="none"
+            stroke-dasharray="14 10" stroke-linecap="round" opacity="0.55"/>
+
+      <!-- Arrow at end -->
+      <polygon points="760,95 778,105 760,115" fill="#2C3E50"/>
+
+      <!-- ═══ STOP 01 ═══ purple — LEFT, ABOVE road -->
+      <line x1="60" y1="155" x2="60" y2="90" stroke="#9C4DCC" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="60" cy="68" r="22" fill="url(#g01)" filter="url(#shadow)"/>
+      <text x="60" y="73" text-anchor="middle" font-size="11" fill="white" font-weight="800" font-family="Nunito, sans-serif">01</text>
+      <!-- icon: pen nib -->
+      <text x="60" y="63" text-anchor="middle" font-size="13" fill="white" opacity="0.85">✒</text>
+      <text class="stop-label" x="60" y="210">Visual Design</text>
+      <text class="stop-label" x="60" y="222">Mastery</text>
+
+      <!-- ═══ STOP 02 ═══ blue — on the dip, BELOW road -->
+      <line x1="180" y1="142" x2="180" y2="192" stroke="#42A5F5" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="180" cy="212" r="22" fill="url(#g02)" filter="url(#shadow)"/>
+      <text x="180" y="207" text-anchor="middle" font-size="13" fill="white" opacity="0.85">👥</text>
+      <text x="180" y="217" text-anchor="middle" font-size="11" fill="white" font-weight="800" font-family="Nunito, sans-serif">02</text>
+      <text class="stop-label" x="180" y="244">Experience</text>
+      <text class="stop-label" x="180" y="256">Design Mastery</text>
+
+      <!-- ═══ STOP 03 ═══ teal — TOP peak -->
+      <line x1="282" y1="78" x2="282" y2="32" stroke="#26C6DA" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="282" cy="20" r="22" fill="url(#g03)" filter="url(#shadow)"/>
+      <text x="282" y="15" text-anchor="middle" font-size="13" fill="white" opacity="0.85">⬡</text>
+      <text x="282" y="25" text-anchor="middle" font-size="11" fill="white" font-weight="800" font-family="Nunito, sans-serif">03</text>
+      <text class="stop-label" x="282" y="210">Design System</text>
+      <text class="stop-label" x="282" y="222">Masterclass</text>
+
+      <!-- ═══ STOP 04 ═══ purple-light — dip valley -->
+      <line x1="385" y1="148" x2="385" y2="198" stroke="#AB47BC" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="385" cy="218" r="22" fill="url(#g04)" filter="url(#shadow)"/>
+      <text x="385" y="213" text-anchor="middle" font-size="13" fill="white" opacity="0.85">✦</text>
+      <text x="385" y="223" text-anchor="middle" font-size="11" fill="white" font-weight="800" font-family="Nunito, sans-serif">04</text>
+      <text class="stop-label" x="385" y="249">AI for</text>
+      <text class="stop-label" x="385" y="261">Designers</text>
+
+      <!-- ═══ STOP 05 ═══ orange — top peak -->
+      <line x1="510" y1="86" x2="510" y2="32" stroke="#FFA726" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="510" cy="20" r="22" fill="url(#g05)" filter="url(#shadow)"/>
+      <text x="510" y="15" text-anchor="middle" font-size="12" fill="white" opacity="0.85">📊</text>
+      <text x="510" y="25" text-anchor="middle" font-size="11" fill="white" font-weight="800" font-family="Nunito, sans-serif">05</text>
+      <text class="stop-label" x="510" y="210">Design vs</text>
+      <text class="stop-label" x="510" y="222">Business</text>
+
+      <!-- ═══ STOP 06 ═══ green — dip valley -->
+      <line x1="620" y1="150" x2="620" y2="198" stroke="#66BB6A" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="620" cy="218" r="22" fill="url(#g06)" filter="url(#shadow)"/>
+      <text x="620" y="213" text-anchor="middle" font-size="13" fill="white" opacity="0.85">🚀</text>
+      <text x="620" y="223" text-anchor="middle" font-size="11" fill="white" font-weight="800" font-family="Nunito, sans-serif">06</text>
+      <text class="stop-label" x="620" y="249">Let's Design</text>
+      <text class="stop-label" x="620" y="261">a Product</text>
+
+      <!-- ═══ STOP 07 ═══ pink — upper bend -->
+      <line x1="700" y1="143" x2="700" y2="88" stroke="#F06292" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="700" cy="66" r="22" fill="url(#g07)" filter="url(#shadow)"/>
+      <text x="700" y="61" text-anchor="middle" font-size="13" fill="white" opacity="0.85">📢</text>
+      <text x="700" y="71" text-anchor="middle" font-size="11" fill="white" font-weight="800" font-family="Nunito, sans-serif">07</text>
+      <text class="stop-label" x="700" y="210">Presentation &amp;</text>
+      <text class="stop-label" x="700" y="222">Storytelling</text>
+
+      <!-- ═══ STOP 08 ═══ gold — end of road -->
+      <line x1="775" y1="105" x2="792" y2="66" stroke="#FFCA28" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="792" cy="46" r="22" fill="url(#g08)" filter="url(#shadow)"/>
+      <text x="792" y="41" text-anchor="middle" font-size="12" fill="white" opacity="0.85">&lt;/&gt;</text>
+      <text x="792" y="51" text-anchor="middle" font-size="11" fill="white" font-weight="800" font-family="Nunito, sans-serif">08</text>
+      <text class="stop-label" x="792" y="210">Building a Live</text>
+      <text class="stop-label" x="792" y="222">Application</text>
+    </svg>
+  </div>
+
+
+  <!-- JOURNEY IN DETAIL heading -->
+  <div class="journey-heading">THE JOURNEY IN DETAIL</div>
+
+  <!-- MODULE CARDS -->
+  <div class="cards-grid">
+
+    <!-- 01 -->
+    <div class="module-card card-01">
+      <span class="card-num num-01">Module 01</span>
+      <div class="card-icon-wrap">
+        <svg class="card-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="10" fill="#F3E5F5"/>
+          <rect x="8" y="10" width="20" height="28" rx="3" fill="#CE93D8"/>
+          <rect x="12" y="14" width="12" height="3" rx="1.5" fill="#7B1FA2"/>
+          <rect x="12" y="20" width="8" height="2" rx="1" fill="#7B1FA2" opacity=".6"/>
+          <rect x="12" y="25" width="10" height="2" rx="1" fill="#7B1FA2" opacity=".4"/>
+          <rect x="8" y="22" width="4" height="12" rx="1" fill="#9C27B0"/>
+          <path d="M32 18 L44 18 L44 30 L32 30 Z" fill="#7B1FA2" rx="2"/>
+          <text x="36" y="28" font-size="10" fill="white" font-weight="800" font-family="monospace">Aa</text>
+        </svg>
+      </div>
+      <div class="card-title">Visual Design Mastery</div>
+      <div class="topics-wrap">
+        <span class="topic-pill">Design Foundations</span>
+        <span class="topic-pill">Tools Mastery – Figma</span>
+      
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="module-card card-02">
+      <span class="card-num num-02">Module 02</span>
+      <div class="card-icon-wrap">
+        <svg class="card-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="10" fill="#E3F2FD"/>
+          <rect x="8" y="12" width="32" height="24" rx="4" fill="#90CAF9"/>
+          <rect x="12" y="16" width="24" height="16" rx="2" fill="#E3F2FD"/>
+          <circle cx="24" cy="20" r="4" fill="#1565C0"/>
+          <path d="M15 30 Q24 22 33 30" stroke="#1565C0" stroke-width="2" fill="none"/>
+          <circle cx="36" cy="34" r="6" fill="#1E88E5"/>
+          <path d="M33 34 L35 36 L39 32" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="card-title">Experience Design Mastery</div>
+      <div class="topics-wrap">
+        <span class="topic-pill">Design Methods Introduction</span>
+        <span class="topic-pill">UX Research </span>
+        <span class="topic-pill">Product Strategy</span>
+        <span class="topic-pill">UX Audits</span>
+        <span class="topic-pill">Behavioral Design</span>
+        <span class="topic-pill">Accessibility & Testing</span>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="module-card card-03">
+      <span class="card-num num-03">Module 03</span>
+      <div class="card-icon-wrap">
+        <svg class="card-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="10" fill="#E0F7FA"/>
+          <rect x="8" y="8" width="15" height="15" rx="3" fill="#B2EBF2"/>
+          <rect x="8" y="8" width="15" height="15" rx="3" fill="none" stroke="#00838F" stroke-width="1.5"/>
+          <text x="12" y="20" font-size="10" fill="#00838F" font-weight="800" font-family="monospace">Aa</text>
+          <rect x="26" y="8" width="15" height="15" rx="3" fill="#FF5252" opacity=".8"/>
+          <rect x="8" y="26" width="15" height="15" rx="3" fill="#69F0AE" opacity=".8"/>
+          <rect x="26" y="26" width="15" height="15" rx="3" fill="#FFCA28" opacity=".8"/>
+          <rect x="24" y="6" width="19" height="19" rx="4" fill="none" stroke="#00838F" stroke-width="2" opacity=".4"/>
+        </svg>
+      </div>
+      <div class="card-title">Design System Masterclass</div>
+      <div class="topics-wrap">
+        <span class="topic-pill">Atomic Design Systems</span>
+        <span class="topic-pill">Color Systems</span>
+        <span class="topic-pill">Typography Systems</span>
+        <span class="topic-pill">Spacing Systems</span>
+        <span class="topic-pill">Design Tokens</span>
+        <span class="topic-pill">Variants & States</span>
+        <span class="topic-pill">Working with Developers</span>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="module-card card-04">
+      <span class="card-num num-04">Module 04</span>
+      <div class="card-icon-wrap">
+        <svg class="card-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="10" fill="#F3E5F5"/>
+          <rect x="8" y="18" width="22" height="22" rx="4" fill="#CE93D8"/>
+          <text x="14" y="34" font-size="14" fill="white" font-weight="900" font-family="sans-serif">AI</text>
+          <!-- robot head -->
+          <circle cx="36" cy="20" r="9" fill="#7B1FA2"/>
+          <rect x="32" y="22" width="4" height="2" rx="1" fill="white"/>
+          <rect x="34.5" y="22" width="4" height="2" rx="1" fill="white"/>
+          <circle cx="34" cy="19" r="1.5" fill="white"/>
+          <circle cx="38" cy="19" r="1.5" fill="white"/>
+          <!-- speech bubble -->
+          <rect x="28" y="8" width="18" height="10" rx="3" fill="#E1BEE7"/>
+          <path d="M33 18 L35 22 L37 18Z" fill="#E1BEE7"/>
+          <rect x="30" y="10" width="14" height="2" rx="1" fill="#7B1FA2" opacity=".5"/>
+          <rect x="30" y="14" width="10" height="2" rx="1" fill="#7B1FA2" opacity=".3"/>
+        </svg>
+      </div>
+      <div class="card-title">AI for Designers</div>
+      <div class="topics-wrap">
+        <span class="topic-pill">Getting Started with LLMs</span>
+        <span class="topic-pill">Prompt Engineering</span>
+        <span class="topic-pill">UX Writing with AI</span>
+        <span class="topic-pill">Microcopy using AI</span>
+        <span class="topic-pill">User Research Analysis</span>
+        <span class="topic-pill">AI-based Persona Analysis</span>
+        <span class="topic-pill">Strategy Ideation using AI</span>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="module-card card-05">
+      <span class="card-num num-05">Module 05</span>
+      <div class="card-icon-wrap">
+        <svg class="card-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="10" fill="#FFF3E0"/>
+          <rect x="6" y="10" width="40" height="26" rx="4" fill="#FFCC80"/>
+          <rect x="9" y="13" width="34" height="20" rx="2" fill="white"/>
+          <!-- pie chart -->
+          <circle cx="22" cy="23" r="8" fill="#FF9800"/>
+          <path d="M22 23 L22 15 A8 8 0 0 1 30 23 Z" fill="#E65100"/>
+          <path d="M22 23 L30 23 A8 8 0 0 1 18 30 Z" fill="#FFB74D"/>
+          <!-- bar chart -->
+          <rect x="33" y="20" width="4" height="13" rx="1" fill="#FF9800"/>
+          <rect x="38" y="24" width="4" height="9" rx="1" fill="#FFB74D"/>
+          <!-- dollar -->
+          <circle cx="42" cy="36" r="7" fill="#FFC107"/>
+          <text x="39.5" y="40" font-size="10" font-weight="900" fill="white" font-family="sans-serif">$</text>
+        </svg>
+      </div>
+      <div class="card-title">Design vs Business</div>
+      <div class="topics-wrap">
+        <span class="topic-pill">How Digital Products Make Money</span>
+        <span class="topic-pill">Product Positioning</span>
+        <span class="topic-pill">Product Market Fit</span>
+        <span class="topic-pill">Revenue vs Design Trade-offs</span>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="module-card card-06">
+      <span class="card-num num-06">Module 06</span>
+      <div class="card-icon-wrap">
+        <svg class="card-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="10" fill="#E8F5E9"/>
+          <!-- phone -->
+          <rect x="14" y="6" width="22" height="36" rx="5" fill="#00C853"/>
+          <rect x="17" y="10" width="16" height="22" rx="2" fill="white"/>
+          <circle cx="25" cy="38" r="2" fill="white"/>
+          <!-- checklist lines on screen -->
+          <rect x="19" y="13" width="3" height="3" rx="0.5" fill="#00C853"/>
+          <rect x="24" y="14" width="7" height="1.5" rx="0.5" fill="#ccc"/>
+          <rect x="19" y="18" width="3" height="3" rx="0.5" fill="#00C853"/>
+          <rect x="24" y="19" width="5" height="1.5" rx="0.5" fill="#ccc"/>
+          <rect x="19" y="23" width="3" height="3" rx="0.5" fill="#00C853"/>
+          <rect x="24" y="24" width="6" height="1.5" rx="0.5" fill="#ccc"/>
+          <!-- check mark -->
+          <circle cx="38" cy="36" r="7" fill="#00C853"/>
+          <path d="M34 36 L37 39 L42 33" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="card-title">Let's Design a Product</div>
+      <div class="topics-wrap">
+        <span class="topic-pill">What is the Problem?</span>
+        <span class="topic-pill">User Research</span>
+        <span class="topic-pill">Synthesizing Research Data</span>
+        <span class="topic-pill">Solution Ideation</span>
+        <span class="topic-pill">Building Design Systems</span>
+        <span class="topic-pill">Visual Screens & Prototypes</span>
+        <span class="topic-pill">Usability Testing</span>
+      </div>
+    </div>
+
+    <!-- 07 -->
+    <div class="module-card card-07">
+      <span class="card-num num-07">Module 07</span>
+      <div class="card-icon-wrap">
+        <svg class="card-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="10" fill="#FCE4EC"/>
+          <!-- slide -->
+          <rect x="6" y="10" width="32" height="22" rx="3" fill="#F48FB1"/>
+          <rect x="9" y="13" width="26" height="16" rx="2" fill="white"/>
+          <!-- pie on slide -->
+          <circle cx="18" cy="21" r="5" fill="#E91E63"/>
+          <path d="M18 21 L18 16 A5 5 0 0 1 23 21 Z" fill="#F06292"/>
+          <!-- mountain / bar on slide -->
+          <rect x="25" y="19" width="3" height="7" rx="1" fill="#E91E63"/>
+          <rect x="29" y="22" width="3" height="4" rx="1" fill="#F48FB1"/>
+          <!-- person presenting -->
+          <circle cx="38" cy="16" r="5" fill="#E91E63"/>
+          <rect x="34" y="22" width="8" height="10" rx="3" fill="#F06292"/>
+          <!-- pointer -->
+          <line x1="33" y1="22" x2="21" y2="20" stroke="#C2185B" stroke-width="1.5"/>
+          <circle cx="21" cy="20" r="1.5" fill="#C2185B"/>
+        </svg>
+      </div>
+      <div class="card-title">Presentation &amp; Storytelling</div>
+      <div class="topics-wrap">
+        <span class="topic-pill">Case Study Narrative Frameworks</span>
+        <span class="topic-pill">Design Defense Techniques</span>
+        <span class="topic-pill">Client-Level Pitch Deck</span>
+        <span class="topic-pill">Voice Presentation</span>
+      </div>
+    </div>
+
+    <!-- 08 -->
+    <div class="module-card card-08">
+      <span class="card-num num-08">Module 08</span>
+      <div class="card-icon-wrap">
+        <svg class="card-icon-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="10" fill="#FFFDE7"/>
+          <!-- laptop -->
+          <rect x="6" y="14" width="36" height="24" rx="3" fill="#37474F"/>
+          <rect x="9" y="17" width="30" height="18" rx="2" fill="#263238"/>
+          <rect x="3" y="38" width="42" height="4" rx="2" fill="#607D8B"/>
+          <!-- code on screen -->
+          <text x="14" y="30" font-size="9" fill="#FFC107" font-family="monospace" font-weight="700">&lt;/&gt;</text>
+          <!-- cloud -->
+          <circle cx="38" cy="12" r="6" fill="#29B6F6"/>
+          <circle cx="44" cy="14" r="4" fill="#29B6F6"/>
+          <rect x="36" y="14" width="10" height="5" rx="0" fill="#29B6F6"/>
+          <!-- globe -->
+          <circle cx="44" cy="40" r="6" fill="#FFC107"/>
+          <ellipse cx="44" cy="40" rx="3" ry="6" fill="none" stroke="white" stroke-width="1"/>
+          <line x1="38" y1="40" x2="50" y2="40" stroke="white" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="card-title">Building a Live Application</div>
+ 
+<div class="topics-wrap">
+        <span class="topic-pill">Web App Essentials</span>
+        <span class="topic-pill">Translating Design to Product (Designer to Builder Transition)</span>
+        <span class="topic-pill">No-Code Builder Mastery (Framer & Lovable AI)</span>
+        <span class="topic-pill">Working with APIs (Basic Understanding)</span>
+        <span class="topic-pill">Deploying Live Products (MVP)</span>
+        <span class="topic-pill">V1 Release Strategy</span>
+        <span class="topic-pill">Feedback Loop Implementation</span>
+      </div>
+
+
+
+
+    </div>
+
+  </div><!-- /cards-grid -->
+
+  
+  <!-- FOOTER TAGLINE -->
+  <div class="footer-tag">
+    <span class="sparkle">✦</span>
+    <em>Skill Up.</em><span class="dot-sep">·</span>
+    <em>Level UP.</em><span class="dot-sep">·</span>
+      <span class="sparkle">✦</span>
+  </div>
+
+</div><!-- /page-wrapper -->
+</body>
+</html>
