@@ -107,7 +107,7 @@
   /* stop label text */
   .stop-label {
     font-family: 'Poppins', sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     fill: var(--dark);
     text-anchor: middle;
@@ -360,6 +360,260 @@
     0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
     50% { opacity: 0.6; transform: scale(1.3) rotate(20deg); }
   }
+
+  /* ══════════════════════════════════════════════
+     PHASE 1 — DEVOPS ENGINEERING FOUNDATIONS MATRIX
+     Curved SVG Learning Pathway
+  ══════════════════════════════════════════════ */
+
+  .phase-section { margin: 52px 0 0; }
+
+  /* Phase heading block */
+  .phase-heading-block {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .phase-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #f0fdf4 0%, #e8f5e9 100%);
+    border: 1.5px solid #b9f0cb;
+    border-radius: 100px;
+    padding: 5px 18px 5px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--guvi-green-dark);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-family: 'Nunito', sans-serif;
+  }
+  .phase-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--guvi-green);
+    box-shadow: 0 0 0 3px rgba(0,200,83,0.2);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(0,200,83,0.2); }
+    50%       { box-shadow: 0 0 0 6px rgba(0,200,83,0.08); }
+  }
+  .phase-heading-block h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(20px, 3.5vw, 32px);
+    font-weight: 900;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .phase-heading-block h2 .ph-accent { color: var(--guvi-green-dark); }
+  .phase-subtitle {
+    font-size: clamp(12px, 1.8vw, 14px);
+    color: var(--text-light);
+    font-weight: 500;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ── CURVED PATHWAY WRAPPER ── */
+  .p1-pathway-wrap {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+  }
+  .p1-pathway-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+
+  @keyframes p1-dash-flow {
+    from { stroke-dashoffset: 0; }
+    to   { stroke-dashoffset: -80; }
+  }
+  .p1-path-dashes { animation: p1-dash-flow 2.2s linear infinite; }
+
+  @keyframes p1-fadein {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes p1-pulse {
+    0%   { r: 14; opacity: 0.5; }
+    70%  { r: 24; opacity: 0; }
+    100% { r: 24; opacity: 0; }
+  }
+  .p1-pulse-ring { animation: p1-pulse 2.5s ease-out infinite; }
+
+  .p1-ms-group {
+    animation: p1-fadein 0.5s ease both;
+  }
+  .p1-ms-bubble {
+    transition: transform 0.22s ease, filter 0.22s ease;
+    cursor: default;
+  }
+  .p1-ms-group:hover .p1-ms-bubble {
+    transform: translateY(-4px);
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.12));
+  }
+
+  /* Mobile fallback list */
+  .p1-mobile-list { display: none; }
+  @media (max-width: 700px) {
+    .p1-pathway-wrap { display: none; }
+    .p1-mobile-list  {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .p1-mob-item {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--card-bg);
+      border: 1.5px solid #f0f0f0;
+      border-radius: 14px;
+      padding: 13px 16px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .p1-mob-num {
+      flex-shrink: 0;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; color: white;
+      font-family: 'Nunito', sans-serif;
+    }
+    .p1-mob-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px; font-weight: 800; color: var(--dark);
+      line-height: 1.3;
+    }
+    .p1-mob-emoji { font-size: 18px; flex-shrink: 0; }
+  }
+
+  /* Section divider between Phase 1 and Phase 2 */
+  .phase-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 60px 0 0;
+  }
+  .phase-divider-line {
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, #d4f5dd, transparent);
+  }
+  .phase-divider-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #f0fdf4 0%, #e8f5e9 100%);
+    border: 1.5px solid #b9f0cb;
+    border-radius: 100px;
+    padding: 6px 20px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--guvi-green-dark);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    white-space: nowrap;
+  }
+
+  /* ─── PHASE TABS ─── */
+  .phase-tabs-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 52px 0 0;
+  }
+  .phase-tab {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 28px;
+    border-radius: 100px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background: #f5f5f5;
+    color: #888;
+    transition: color 0.28s ease, background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    user-select: none;
+    outline: none;
+  }
+  .phase-tab .tab-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.45;
+    transition: opacity 0.28s ease, box-shadow 0.28s ease;
+    flex-shrink: 0;
+  }
+  .phase-tab.active {
+    background: linear-gradient(135deg, #f0fdf4 0%, #e8f5e9 100%);
+    color: var(--guvi-green-dark);
+    border-color: #b9f0cb;
+    box-shadow: 0 0 0 4px rgba(0,200,83,0.10), 0 4px 18px rgba(0,200,83,0.13);
+  }
+  .phase-tab.active .tab-dot {
+    opacity: 1;
+    background: var(--guvi-green);
+    box-shadow: 0 0 0 4px rgba(0,200,83,0.22);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  .phase-tab:not(.active):hover {
+    background: #eee;
+    color: #555;
+    border-color: #ddd;
+  }
+
+  /* ─── PHASE PANELS ─── */
+  .phase-panel {
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .phase-panel.hidden {
+    display: none;
+  }
+  .phase-panel.fade-in {
+    animation: phase-fadein 0.38s ease both;
+  }
+  @keyframes phase-fadein {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Phase 2 heading */
+  .phase2-heading-block {
+    text-align: center;
+    margin: 28px 0 0;
+  }
+  .phase2-heading-block h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(20px, 3.5vw, 32px);
+    font-weight: 900;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .phase2-heading-block h2 .ph2-accent { color: var(--guvi-green-dark); }
+  .phase2-subtitle {
+    font-size: clamp(12px, 1.8vw, 14px);
+    color: var(--text-light);
+    font-weight: 500;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
 </style>
 </head>
 <body>
@@ -383,6 +637,359 @@
       <span class="impact">Scale.</span>
       &nbsp;&mdash;&nbsp;From Linux to DevSecOps</div>
   </div>
+
+  <!-- ══ PHASE TABS ══ -->
+  <div class="phase-tabs-bar" role="tablist" aria-label="Course phases">
+    <button class="phase-tab active" id="tab-phase1" role="tab" aria-selected="true" aria-controls="panel-phase1" onclick="switchTab('phase1')">
+      <span class="tab-dot"></span>Phase 1 &mdash; Foundations
+    </button>
+    <button class="phase-tab" id="tab-phase2" role="tab" aria-selected="false" aria-controls="panel-phase2" onclick="switchTab('phase2')">
+      <span class="tab-dot"></span>Phase 2 &mdash; Roadmap
+    </button>
+  </div>
+
+  <!-- ══ PHASE 1 PANEL ══ -->
+  <div id="panel-phase1" class="phase-panel fade-in" role="tabpanel" aria-labelledby="tab-phase1">
+  <!-- ══════════════════════════════════════════
+       PHASE 1 — DEVOPS ENGINEERING FOUNDATIONS MATRIX
+  ══════════════════════════════════════════ -->
+  <div class="phase-section">
+
+    <!-- Phase 1 heading -->
+    <div class="phase-heading-block">
+            <h2>DevOps Engineering <span class="ph-accent">Foundations Matrix</span></h2>
+          </div>
+
+    <!-- Phase 1 curved SVG learning pathway -->
+
+    <!-- DESKTOP: SVG curved path with milestone nodes -->
+    <div class="p1-pathway-wrap">
+      <!--
+        Canvas: 1152 wide × 560 tall (viewBox units, scales with container)
+        Path: two smooth S-curves across the canvas, midline y=280
+        12 milestones placed alternately above (y=110) and below (y=450) the path,
+        connected by short vertical leader lines.
+        X positions evenly spread: 56, 152, 248, 344, 440, 536, 632, 728, 824, 920, 1016, 1096
+      -->
+      <svg class="p1-pathway-svg" viewBox="0 0 1152 560" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+        <defs>
+          <!-- Glow filter for path -->
+          <filter id="p1glow" x="-20%" y="-200%" width="140%" height="500%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <!-- Drop shadow for milestone bubbles -->
+          <filter id="p1shadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="rgba(0,0,0,0.10)"/>
+          </filter>
+          <!-- Gradient stops per milestone color (reuse existing vars via inline fill) -->
+        </defs>
+
+        <!--
+          THE MAIN PATH — two gentle S-curves
+          Starts left at y=280, curves up then down then up then down, ends right at y=280
+          Control points chosen so curve passes near each milestone anchor on the path
+        -->
+
+        <!-- Path shadow -->
+        <path d="M56,280
+                 C120,280 140,180 248,160
+                 C356,140 380,280 440,290
+                 C500,300 520,180 632,160
+                 C744,140 760,280 824,295
+                 C888,310 900,180 1016,160
+                 C1096,148 1100,220 1096,280"
+              fill="none" stroke="#c8d6df" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+
+        <!-- Path base (solid, thicker) -->
+        <path d="M56,280
+                 C120,280 140,180 248,160
+                 C356,140 380,280 440,290
+                 C500,300 520,180 632,160
+                 C744,140 760,280 824,295
+                 C888,310 900,180 1016,160
+                 C1096,148 1100,220 1096,280"
+              fill="none" stroke="#dce8ef" stroke-width="5" stroke-linecap="round"/>
+
+        <!-- Animated dashes (moving flow) -->
+        <path class="p1-path-dashes"
+              d="M56,280
+                 C120,280 140,180 248,160
+                 C356,140 380,280 440,290
+                 C500,300 520,180 632,160
+                 C744,140 760,280 824,295
+                 C888,310 900,180 1016,160
+                 C1096,148 1100,220 1096,280"
+              fill="none" stroke="#00C853" stroke-width="2.5" stroke-linecap="round"
+              stroke-dasharray="14 18" opacity="0.55" filter="url(#p1glow)"/>
+
+        <!-- ══ START ARROW ══ -->
+        <circle cx="46" cy="280" r="6" fill="#00C853" opacity="0.25"/>
+        <circle cx="46" cy="280" r="3.5" fill="#00C853"/>
+
+        <!-- ══ END ARROWHEAD ══ -->
+        <polygon points="1096,270 1118,280 1096,290" fill="#dce8ef"/>
+
+        <!--
+          MILESTONE NODES
+          Alternating ABOVE (y≈140) and BELOW (y≈420) the path.
+          Path approximate y at each x:
+            x=56  → y≈280  (above → leader up)
+            x=152 → y≈228  (below → leader down)
+            x=248 → y≈160  (above → leader up, path is at peak)
+            x=344 → y≈207  (below → leader down)
+            x=440 → y≈290  (above → leader up)
+            x=536 → y≈235  (below → leader down)
+            x=632 → y≈160  (above → leader up)
+            x=728 → y≈207  (below → leader down)
+            x=824 → y≈295  (above → leader up)
+            x=920 → y≈247  (below → leader down)
+            x=1016→ y≈160  (above → leader up)
+            x=1096→ y≈280  (below → leader down)
+
+          Bubble: white rounded rect 160×66, centered on cx
+          Above: rect bottom at y_path − 22 → rect top = y_path − 22 − 66 = y_path − 88
+          Below: rect top at y_path + 22
+          Leader: vertical dashed line from path y to rect edge
+          Circle: radius 14 centered on cx at path y
+        -->
+
+        <!-- ════════ 01 — How Modern Applications Work — ABOVE ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.05s">
+          <line x1="56" y1="270" x2="56" y2="194" stroke="#2196F3" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="56" cy="280" r="20" fill="none" stroke="#2196F3" stroke-width="1.5" style="animation-delay:0s"/>
+          <circle cx="56" cy="280" r="20" fill="#2196F3" filter="url(#p1shadow)"/>
+          <text x="56" y="275" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">01</text>
+          <text x="56" y="291" text-anchor="middle" font-size="13" fill="white">🌐</text>
+          <g class="p1-ms-bubble">
+            <rect x="-24" y="108" width="160" height="62" rx="12" fill="white" stroke="#e8f4fd" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="-24" y="108" width="160" height="4" rx="2" fill="#2196F3"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="56" y="131">How Modern</tspan>
+              <tspan x="56" dy="14">Applications Work</tspan>
+            </text>
+          </g>
+        </g>
+
+        <!-- ════════ 02 — Internet, Networking & Security — BELOW ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.1s">
+          <line x1="152" y1="235" x2="152" y2="372" stroke="#00B8A9" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="152" cy="228" r="20" fill="none" stroke="#00B8A9" stroke-width="1.5" style="animation-delay:0.2s"/>
+          <circle cx="152" cy="228" r="20" fill="#00B8A9" filter="url(#p1shadow)"/>
+          <text x="152" y="223" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">02</text>
+          <text x="152" y="239" text-anchor="middle" font-size="13" fill="white">🔒</text>
+          <g class="p1-ms-bubble">
+            <rect x="72" y="376" width="160" height="62" rx="12" fill="white" stroke="#e0f5f4" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="72" y="376" width="160" height="4" rx="2" fill="#00B8A9"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="152" y="399">Internet, Networking</tspan>
+              <tspan x="152" dy="14">&amp; Security Basics</tspan>
+            </text>
+          </g>
+        </g>
+
+        <!-- ════════ 03 — Virtualization, Cloud & Containers — ABOVE ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.15s">
+          <line x1="248" y1="148" x2="248" y2="94" stroke="#7B2FBE" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="248" cy="160" r="20" fill="none" stroke="#7B2FBE" stroke-width="1.5" style="animation-delay:0.4s"/>
+          <circle cx="248" cy="160" r="20" fill="#7B2FBE" filter="url(#p1shadow)"/>
+          <text x="248" y="155" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">03</text>
+          <text x="248" y="171" text-anchor="middle" font-size="13" fill="white">📦</text>
+          <g class="p1-ms-bubble">
+            <rect x="168" y="18" width="160" height="62" rx="12" fill="white" stroke="#f0e8fb" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="168" y="18" width="160" height="4" rx="2" fill="#7B2FBE"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="248" y="41">Virtualization,</tspan>
+              <tspan x="248" dy="14">Cloud &amp; Containers</tspan>
+            </text>
+          </g>
+        </g>
+
+        <!-- ════════ 04 — Foundations of OS & OSI Model — BELOW ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.2s">
+          <line x1="344" y1="214" x2="344" y2="372" stroke="#00C853" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="344" cy="207" r="20" fill="none" stroke="#00C853" stroke-width="1.5" style="animation-delay:0.6s"/>
+          <circle cx="344" cy="207" r="20" fill="#00C853" filter="url(#p1shadow)"/>
+          <text x="344" y="202" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">04</text>
+          <text x="344" y="218" text-anchor="middle" font-size="13" fill="white">🖥️</text>
+          <g class="p1-ms-bubble">
+            <rect x="264" y="376" width="160" height="62" rx="12" fill="white" stroke="#e8faf0" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="264" y="376" width="160" height="4" rx="2" fill="#00C853"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="344" y="399">Foundations of OS</tspan>
+              <tspan x="344" dy="14">&amp; OSI Model</tspan>
+            </text>
+          </g>
+        </g>
+
+        <!-- ════════ 05 — Linux & Command Line Culture — ABOVE ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.25s">
+          <line x1="440" y1="278" x2="440" y2="194" stroke="#FF6B35" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="440" cy="290" r="20" fill="none" stroke="#FF6B35" stroke-width="1.5" style="animation-delay:0.8s"/>
+          <circle cx="440" cy="290" r="20" fill="#FF6B35" filter="url(#p1shadow)"/>
+          <text x="440" y="285" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">05</text>
+          <text x="440" y="301" text-anchor="middle" font-size="13" fill="white">🐧</text>
+          <g class="p1-ms-bubble">
+            <rect x="360" y="108" width="160" height="62" rx="12" fill="white" stroke="#fff0ea" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="360" y="108" width="160" height="4" rx="2" fill="#FF6B35"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="440" y="131">Linux &amp; Command</tspan>
+              <tspan x="440" dy="14">Line Culture</tspan>
+            </text>
+          </g>
+        </g>
+
+        <!-- ════════ 06 — Git, Collaboration & Team Workflow — BELOW ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.3s">
+          <line x1="536" y1="242" x2="536" y2="372" stroke="#00ACC1" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="536" cy="235" r="20" fill="none" stroke="#00ACC1" stroke-width="1.5" style="animation-delay:1.0s"/>
+          <circle cx="536" cy="235" r="20" fill="#00ACC1" filter="url(#p1shadow)"/>
+          <text x="536" y="230" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">06</text>
+          <text x="536" y="246" text-anchor="middle" font-size="13" fill="white">⑂</text>
+          <g class="p1-ms-bubble">
+            <rect x="456" y="376" width="160" height="62" rx="12" fill="white" stroke="#e0f7fa" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="456" y="376" width="160" height="4" rx="2" fill="#00ACC1"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="536" y="399">Git, Collaboration</tspan>
+              <tspan x="536" dy="14">&amp; Team Workflow</tspan>
+            </text>
+          </g>
+        </g>
+
+        <!-- ════════ 07 — Cloud Fundamentals & Scalability — ABOVE ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.35s">
+          <line x1="632" y1="148" x2="632" y2="94" stroke="#FFC107" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="632" cy="160" r="20" fill="none" stroke="#FFC107" stroke-width="1.5" style="animation-delay:1.2s"/>
+          <circle cx="632" cy="160" r="20" fill="#FFC107" filter="url(#p1shadow)"/>
+          <text x="632" y="155" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">07</text>
+          <text x="632" y="171" text-anchor="middle" font-size="13" fill="white">☁️</text>
+          <g class="p1-ms-bubble">
+            <rect x="552" y="18" width="160" height="62" rx="12" fill="white" stroke="#fff8e1" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="552" y="18" width="160" height="4" rx="2" fill="#FFC107"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="632" y="41">Cloud Fundamentals</tspan>
+              <tspan x="632" dy="14">&amp; Scalability</tspan>
+            </text>
+          </g>
+        </g>
+
+        <!-- ════════ 08 — Automation & CI/CD Thinking — BELOW ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.4s">
+          <line x1="728" y1="214" x2="728" y2="372" stroke="#3949AB" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="728" cy="207" r="20" fill="none" stroke="#3949AB" stroke-width="1.5" style="animation-delay:1.4s"/>
+          <circle cx="728" cy="207" r="20" fill="#3949AB" filter="url(#p1shadow)"/>
+          <text x="728" y="202" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">08</text>
+          <text x="728" y="218" text-anchor="middle" font-size="13" fill="white">🔄</text>
+          <g class="p1-ms-bubble">
+            <rect x="648" y="376" width="160" height="62" rx="12" fill="white" stroke="#e8eaf6" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="648" y="376" width="160" height="4" rx="2" fill="#3949AB"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="728" y="399">Automation &amp;</tspan>
+              <tspan x="728" dy="14">CI/CD Thinking</tspan>
+            </text>
+          </g>
+        </g>
+
+        <!-- ════════ 09 — Infrastructure & Security Awareness — ABOVE ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.45s">
+          <line x1="824" y1="283" x2="824" y2="194" stroke="#E91E8C" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="824" cy="295" r="20" fill="none" stroke="#E91E8C" stroke-width="1.5" style="animation-delay:1.6s"/>
+          <circle cx="824" cy="295" r="20" fill="#E91E8C" filter="url(#p1shadow)"/>
+          <text x="824" y="290" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">09</text>
+          <text x="824" y="306" text-anchor="middle" font-size="13" fill="white">🏗️</text>
+          <g class="p1-ms-bubble">
+            <rect x="744" y="108" width="160" height="62" rx="12" fill="white" stroke="#fce4f3" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="744" y="108" width="160" height="4" rx="2" fill="#E91E8C"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="824" y="131">Infrastructure &amp;</tspan>
+              <tspan x="824" dy="14">Security Awareness</tspan>
+            </text>
+          </g>
+        </g>
+
+        <!-- ════════ 10 — Monitoring, Logs & Reliability — BELOW ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.5s">
+          <line x1="920" y1="254" x2="920" y2="372" stroke="#E53935" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="920" cy="247" r="20" fill="none" stroke="#E53935" stroke-width="1.5" style="animation-delay:1.8s"/>
+          <circle cx="920" cy="247" r="20" fill="#E53935" filter="url(#p1shadow)"/>
+          <text x="920" y="242" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">10</text>
+          <text x="920" y="258" text-anchor="middle" font-size="13" fill="white">📊</text>
+          <g class="p1-ms-bubble">
+            <rect x="840" y="376" width="160" height="62" rx="12" fill="white" stroke="#ffebee" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="840" y="376" width="160" height="4" rx="2" fill="#E53935"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="920" y="399">Monitoring, Logs</tspan>
+              <tspan x="920" dy="14">&amp; Reliability</tspan>
+            </text>
+          </g>
+        </g>
+
+        <!-- ════════ 11 — DevSecOps, Failures & Cost Awareness — ABOVE ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.55s">
+          <line x1="1016" y1="148" x2="1016" y2="94" stroke="#9B4DCA" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="1016" cy="160" r="20" fill="none" stroke="#9B4DCA" stroke-width="1.5" style="animation-delay:2.0s"/>
+          <circle cx="1016" cy="160" r="20" fill="#9B4DCA" filter="url(#p1shadow)"/>
+          <text x="1016" y="155" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">11</text>
+          <text x="1016" y="171" text-anchor="middle" font-size="13" fill="white">🛡️</text>
+          <g class="p1-ms-bubble">
+            <rect x="936" y="18" width="160" height="62" rx="12" fill="white" stroke="#f3e5f5" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="936" y="18" width="160" height="4" rx="2" fill="#9B4DCA"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="1016" y="41">DevSecOps, Failures</tspan>
+              <tspan x="1016" dy="14">&amp; Cost Awareness</tspan>
+            </text>
+          </g>
+        </g>
+
+        <!-- ════════ 12 — Microservices, Culture & Career Roadmap — BELOW ════════ -->
+        <g class="p1-ms-group" style="animation-delay:0.6s">
+          <line x1="1096" y1="287" x2="1096" y2="372" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <circle class="p1-pulse-ring" cx="1096" cy="280" r="20" fill="none" stroke="#7CB342" stroke-width="1.5" style="animation-delay:2.2s"/>
+          <circle cx="1096" cy="280" r="20" fill="#7CB342" filter="url(#p1shadow)"/>
+          <text x="1096" y="275" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="white">12</text>
+          <text x="1096" y="291" text-anchor="middle" font-size="13" fill="white">🚀</text>
+          <g class="p1-ms-bubble">
+            <rect x="1000" y="376" width="160" height="62" rx="12" fill="white" stroke="#f1f8e9" stroke-width="1.5" filter="url(#p1shadow)"/>
+            <rect x="1000" y="376" width="160" height="4" rx="2" fill="#7CB342"/>
+            <text text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#1A1A2E">
+              <tspan x="1080" y="399">Microservices, Culture</tspan>
+              <tspan x="1080" dy="14">&amp; Career Roadmap</tspan>
+            </text>
+          </g>
+        </g>
+
+      </svg>
+    </div>
+
+    <!-- MOBILE FALLBACK: plain stacked cards -->
+    <div class="p1-mobile-list">
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#2196F3">01</span><span class="p1-mob-emoji">🌐</span><span class="p1-mob-title">How Modern Applications Work</span></div>
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#00B8A9">02</span><span class="p1-mob-emoji">🔒</span><span class="p1-mob-title">Internet, Networking &amp; Security Basics</span></div>
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#7B2FBE">03</span><span class="p1-mob-emoji">📦</span><span class="p1-mob-title">Virtualization, Cloud &amp; Containers</span></div>
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#00C853">04</span><span class="p1-mob-emoji">🖥️</span><span class="p1-mob-title">Foundations of OS &amp; OSI Model</span></div>
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#FF6B35">05</span><span class="p1-mob-emoji">🐧</span><span class="p1-mob-title">Linux &amp; Command Line Culture</span></div>
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#00ACC1">06</span><span class="p1-mob-emoji">⑂</span><span class="p1-mob-title">Git, Collaboration &amp; Team Workflow</span></div>
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#FFC107">07</span><span class="p1-mob-emoji">☁️</span><span class="p1-mob-title">Cloud Fundamentals &amp; Scalability</span></div>
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#3949AB">08</span><span class="p1-mob-emoji">🔄</span><span class="p1-mob-title">Automation &amp; CI/CD Thinking</span></div>
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#E91E8C">09</span><span class="p1-mob-emoji">🏗️</span><span class="p1-mob-title">Infrastructure &amp; Security Awareness</span></div>
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#E53935">10</span><span class="p1-mob-emoji">📊</span><span class="p1-mob-title">Monitoring, Logs &amp; Reliability</span></div>
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#9B4DCA">11</span><span class="p1-mob-emoji">🛡️</span><span class="p1-mob-title">DevSecOps, Common DevOps Failures &amp; Cost Awareness</span></div>
+      <div class="p1-mob-item"><span class="p1-mob-num" style="background:#7CB342">12</span><span class="p1-mob-emoji">🚀</span><span class="p1-mob-title">Microservices, Culture &amp; Career Roadmap</span></div>
+    </div>
+
+  </div><!-- /phase-section -->
+  </div><!-- /panel-phase1 -->
+
+  <!-- ══ PHASE 2 PANEL ══ -->
+  <div id="panel-phase2" class="phase-panel hidden" role="tabpanel" aria-labelledby="tab-phase2">
+
+
+
+  <!-- Phase 2 heading -->
+  <div class="phase2-heading-block">
+  
+    <h2>Production-Grade DevOps <span class="ph2-accent">Implementation Journey</span></h2>
+      </div>
 
   <!-- ROAD MAP VISUAL — 12 evenly-spaced stops on a winding road -->
   <div class="road-container">
@@ -499,108 +1106,108 @@
 
       <!-- ══ STOP 01 — Linux & Networking — ABOVE — x=40, road_y≈175 ══ -->
       <line x1="40" y1="155" x2="40" y2="76" stroke="#9C4DCC" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="40" cy="54" r="21" fill="url(#g01)" filter="url(#shadow)"/>
-      <text x="40" y="50" text-anchor="middle" font-size="13" fill="white">🐧</text>
-      <text x="40" y="63" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">01</text>
+      <circle cx="40" cy="54" r="28" fill="url(#g01)" filter="url(#shadow)"/>
+      <text x="40" y="47" text-anchor="middle" font-size="14" fill="white">🐧</text>
+      <text x="40" y="63" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">01</text>
       <!-- Label ABOVE icon -->
-      <text class="stop-label" x="40" y="12">Linux &amp;</text>
-      <text class="stop-label" x="40" y="28">Networking</text>
+      <text class="stop-label" x="40" y="9">Linux &amp;</text>
+      <text class="stop-label" x="40" y="22">Networking</text>
 
       <!-- ══ STOP 02 — Git & Version Control — BELOW — x=138, road_y≈162 ══ -->
       <line x1="138" y1="181" x2="138" y2="258" stroke="#42A5F5" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="138" cy="278" r="21" fill="url(#g02)" filter="url(#shadow)"/>
-      <text x="138" y="274" text-anchor="middle" font-size="13" fill="white">⑂</text>
-      <text x="138" y="285" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">02</text>
+      <circle cx="138" cy="278" r="28" fill="url(#g02)" filter="url(#shadow)"/>
+      <text x="138" y="271" text-anchor="middle" font-size="14" fill="white">⑂</text>
+      <text x="138" y="287" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">02</text>
       <!-- Label BELOW icon -->
       <text class="stop-label" x="138" y="318">Git &amp; Version</text>
       <text class="stop-label" x="138" y="335">Control</text>
 
       <!-- ══ STOP 03 — Programming & Scripting — ABOVE — x=236, road_y≈100 ══ -->
       <line x1="236" y1="82" x2="236" y2="34" stroke="#26C6DA" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="236" cy="21" r="21" fill="url(#g03)" filter="url(#shadow)"/>
-      <text x="236" y="16" text-anchor="middle" font-size="13" fill="white">📜</text>
-      <text x="236" y="28" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">03</text>
+      <circle cx="236" cy="21" r="28" fill="url(#g03)" filter="url(#shadow)"/>
+      <text x="236" y="14" text-anchor="middle" font-size="14" fill="white">📜</text>
+      <text x="236" y="30" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">03</text>
       <!-- No label above (too close to top edge) — put below road -->
       <text class="stop-label" x="236" y="208">Programming</text>
       <text class="stop-label" x="236" y="228">&amp; Scripting</text>
 
       <!-- ══ STOP 04 — Cloud Fundamentals — BELOW — x=334, road_y≈155 ══ -->
       <line x1="334" y1="172" x2="334" y2="258" stroke="#FFA726" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="334" cy="278" r="21" fill="url(#g04)" filter="url(#shadow)"/>
-      <text x="334" y="274" text-anchor="middle" font-size="13" fill="white">☁</text>
-      <text x="334" y="285" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">04</text>
+      <circle cx="334" cy="278" r="28" fill="url(#g04)" filter="url(#shadow)"/>
+      <text x="334" y="271" text-anchor="middle" font-size="14" fill="white">☁</text>
+      <text x="334" y="287" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">04</text>
       <!-- Label BELOW icon -->
       <text class="stop-label" x="334" y="318">Cloud</text>
       <text class="stop-label" x="334" y="335">Fundamentals</text>
 
       <!-- ══ STOP 05 — Containers (Docker) — ABOVE — x=432, road_y≈190 ══ -->
       <line x1="432" y1="175" x2="432" y2="76" stroke="#29B6F6" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="432" cy="54" r="21" fill="url(#g05)" filter="url(#shadow)"/>
-      <text x="432" y="50" text-anchor="middle" font-size="13" fill="white">🐳</text>
-      <text x="432" y="63" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">05</text>
+      <circle cx="432" cy="54" r="28" fill="url(#g05)" filter="url(#shadow)"/>
+      <text x="432" y="47" text-anchor="middle" font-size="14" fill="white">🐳</text>
+      <text x="432" y="63" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">05</text>
       <!-- Label ABOVE icon -->
-      <text class="stop-label" x="432" y="12">Containers</text>
-      <text class="stop-label" x="432" y="28">(Docker)</text>
+      <text class="stop-label" x="432" y="9">Containers</text>
+      <text class="stop-label" x="432" y="22">(Docker)</text>
 
       <!-- ══ STOP 06 — Kubernetes & Cloud Native — BELOW — x=530, road_y≈152 ══ -->
       <line x1="530" y1="172" x2="530" y2="258" stroke="#AB47BC" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="530" cy="278" r="21" fill="url(#g06)" filter="url(#shadow)"/>
-      <text x="530" y="274" text-anchor="middle" font-size="12" fill="white">⚙</text>
-      <text x="530" y="285" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">06</text>
+      <circle cx="530" cy="278" r="28" fill="url(#g06)" filter="url(#shadow)"/>
+      <text x="530" y="271" text-anchor="middle" font-size="14" fill="white">⚙</text>
+      <text x="530" y="287" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">06</text>
       <!-- Label BELOW icon -->
       <text class="stop-label" x="530" y="318">Kubernetes &amp;</text>
       <text class="stop-label" x="530" y="335">Cloud Native</text>
 
       <!-- ══ STOP 07 — CI/CD — ABOVE — x=628, road_y≈100 ══ -->
       <line x1="628" y1="82" x2="628" y2="34" stroke="#F06292" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="628" cy="21" r="21" fill="url(#g07)" filter="url(#shadow)"/>
-      <text x="628" y="16" text-anchor="middle" font-size="13" fill="white">🔄</text>
-      <text x="628" y="28" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">07</text>
+      <circle cx="628" cy="21" r="28" fill="url(#g07)" filter="url(#shadow)"/>
+      <text x="628" y="14" text-anchor="middle" font-size="14" fill="white">🔄</text>
+      <text x="628" y="30" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">07</text>
       <!-- Label below road (peak too close to top) -->
       <text class="stop-label" x="621" y="128">CI/CD</text>
       <text class="stop-label" x="621" y="150">Pipelines</text>
 
       <!-- ══ STOP 08 — Infrastructure as Code — BELOW — x=726, road_y≈170 ══ -->
       <line x1="726" y1="188" x2="726" y2="258" stroke="#FFCA28" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="726" cy="278" r="21" fill="url(#g08)" filter="url(#shadow)"/>
-      <text x="726" y="274" text-anchor="middle" font-size="12" fill="white">🏗</text>
-      <text x="726" y="285" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">08</text>
+      <circle cx="726" cy="278" r="28" fill="url(#g08)" filter="url(#shadow)"/>
+      <text x="726" y="271" text-anchor="middle" font-size="14" fill="white">🏗</text>
+      <text x="726" y="287" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">08</text>
       <!-- Label BELOW icon -->
       <text class="stop-label" x="726" y="318">Infra as</text>
       <text class="stop-label" x="726" y="335">Code</text>
 
       <!-- ══ STOP 09 — Config Management — ABOVE — x=824, road_y≈115 ══ -->
       <line x1="824" y1="98" x2="824" y2="34" stroke="#EF5350" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="824" cy="21" r="21" fill="url(#g09)" filter="url(#shadow)"/>
-      <text x="824" y="16" text-anchor="middle" font-size="13" fill="white">🛠</text>
-      <text x="824" y="28" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">09</text>
+      <circle cx="824" cy="21" r="28" fill="url(#g09)" filter="url(#shadow)"/>
+      <text x="824" y="14" text-anchor="middle" font-size="14" fill="white">🛠</text>
+      <text x="824" y="30" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">09</text>
       <!-- Label below road -->
       <text class="stop-label" x="824" y="245">Config</text>
       <text class="stop-label" x="824" y="259">Management</text>
 
       <!-- ══ STOP 10 — GitOps — BELOW — x=922, road_y≈190 ══ -->
       <line x1="922" y1="210" x2="922" y2="258" stroke="#5C6BC0" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="922" cy="278" r="21" fill="url(#g10)" filter="url(#shadow)"/>
-      <text x="922" y="274" text-anchor="middle" font-size="12" fill="white">♻</text>
-      <text x="922" y="285" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">10</text>
+      <circle cx="922" cy="278" r="28" fill="url(#g10)" filter="url(#shadow)"/>
+      <text x="922" y="271" text-anchor="middle" font-size="14" fill="white">♻</text>
+      <text x="922" y="287" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">10</text>
       <!-- Label BELOW icon -->
       <text class="stop-label" x="922" y="318">GitOps</text>
       <text class="stop-label" x="922" y="335">Workflows</text>
 
       <!-- ══ STOP 11 — Observability — ABOVE — x=1020, road_y≈165 ══ -->
       <line x1="1020" y1="148" x2="1020" y2="76" stroke="#66BB6A" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="1020" cy="54" r="21" fill="url(#g11)" filter="url(#shadow)"/>
-      <text x="1020" y="50" text-anchor="middle" font-size="13" fill="white">📊</text>
-      <text x="1020" y="63" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">11</text>
+      <circle cx="1020" cy="54" r="28" fill="url(#g11)" filter="url(#shadow)"/>
+      <text x="1020" y="47" text-anchor="middle" font-size="14" fill="white">📊</text>
+      <text x="1020" y="63" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">11</text>
       <!-- Label ABOVE icon -->
-      <text class="stop-label" x="1020" y="12">Observability</text>
-      <text class="stop-label" x="1020" y="28">&amp; Monitoring</text>
+      <text class="stop-label" x="1020" y="9">Observability</text>
+      <text class="stop-label" x="1020" y="22">&amp; Monitoring</text>
 
       <!-- ══ STOP 12 — DevSecOps — BELOW — x=1118, road_y≈152 ══ -->
       <line x1="1118" y1="172" x2="1118" y2="258" stroke="#9CCC65" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.8"/>
-      <circle cx="1118" cy="278" r="21" fill="url(#g12)" filter="url(#shadow)"/>
-      <text x="1118" y="274" text-anchor="middle" font-size="12" fill="white">🔒</text>
-      <text x="1118" y="285" text-anchor="middle" font-size="9.5" fill="white" font-weight="800" font-family="Nunito,sans-serif">12</text>
+      <circle cx="1118" cy="278" r="28" fill="url(#g12)" filter="url(#shadow)"/>
+      <text x="1118" y="271" text-anchor="middle" font-size="14" fill="white">🔒</text>
+      <text x="1118" y="287" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="Nunito,sans-serif">12</text>
       <!-- Label BELOW icon -->
       <text class="stop-label" x="1118" y="318">DevSecOps</text>
       <text class="stop-label" x="1118" y="335">&amp; Security</text>
@@ -609,7 +1216,7 @@
   </div>
 
   <!-- JOURNEY IN DETAIL heading -->
-  <div class="journey-heading">THE JOURNEY IN DETAIL</div>
+  <div class="journey-heading">PHASE 2 — MODULE BREAKDOWN</div>
 
   <!-- MODULE CARDS -->
   <div class="cards-grid">
@@ -1011,7 +1618,7 @@
 
   </div><!-- /cards-grid -->
 
-
+  </div><!-- /panel-phase2 -->
 
   <!-- FOOTER TAGLINE -->
   <div class="footer-tag">
@@ -1022,5 +1629,32 @@
   </div>
 
 </div><!-- /page-wrapper -->
+<script>
+  function switchTab(phase) {
+    var panels  = document.querySelectorAll('.phase-panel');
+    var tabs    = document.querySelectorAll('.phase-tab');
+    var target  = document.getElementById('panel-' + phase);
+    var targetTab = document.getElementById('tab-' + phase);
+
+    // Deactivate all
+    tabs.forEach(function(t) {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    panels.forEach(function(p) {
+      p.classList.add('hidden');
+      p.classList.remove('fade-in');
+    });
+
+    // Activate target
+    targetTab.classList.add('active');
+    targetTab.setAttribute('aria-selected', 'true');
+    target.classList.remove('hidden');
+
+    // Trigger reflow so animation replays
+    void target.offsetWidth;
+    target.classList.add('fade-in');
+  }
+</script>
 </body>
 </html>
